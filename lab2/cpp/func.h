@@ -32,3 +32,4 @@ void print_show_duration(vector<TvShow> shows);
 bool is_day_show(TvShow show); 
 vector<TvShow> set_day_shows(vector<TvShow> shows);
 vector<TvShow> read_file(string file_name);
+void print_file(string file_name);

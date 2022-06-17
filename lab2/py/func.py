@@ -64,12 +64,13 @@ def show_duration(start, end):
         minutes = end.minutes - start.minutes
     else:
         hours = end.hours - start.hours - 1
-        if hours < 0:
-            hours = 24 - start.hours - 1 + end.hours
+        
         minutes = 60 - start.minutes + end.minutes
         if minutes >= 60:
-            minutes -= 60;
-            hours += 1;
+            minutes -= 60
+            hours += 1
+        if hours < 0:
+            hours = 24 - start.hours - 1 + end.hours
     dur = struct.Time(hours, minutes)
     return dur
 def print_show_duration(shows):
@@ -101,3 +102,13 @@ def read_file(file_name):
             except EOFError:
                 break
     return shows
+def print_file(file_name):
+    i = 0
+    with open(file_name, "rb") as file:
+        while True:
+            try:
+                show = pickle.load(file)
+                print_show(show, i + 1)
+                i += 1 
+            except EOFError:
+                break

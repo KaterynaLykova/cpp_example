@@ -43,15 +43,15 @@ Time set_show_time_end(Time start)
 {
 	Time num;
 	num.hours = start.hours + rand() % 9;
-	if (num.hours >= 24)
-	{
-		num.hours -= 24;
-	}
 	num.minutes = start.minutes + rand() % 60;
 	if (num.minutes >= 60)
 	{
 		num.minutes -= 60;
 		num.hours++;
+	}
+	if (num.hours >= 24)
+	{
+		num.hours -= 24;
 	}
 	return num;
 }
@@ -196,4 +196,16 @@ vector<TvShow> set_day_shows(vector<TvShow> shows)
 		}
 	}
 	return new_shows;
+}
+void print_file(string file_name)
+{
+	TvShow show;
+	ifstream file(file_name, ios::binary);
+	int i = 0;
+	while (file.read((char*)(&show), sizeof(TvShow)))
+	{
+		print_show(show, i + 1);
+		i++;
+	}
+	file.close();
 }
