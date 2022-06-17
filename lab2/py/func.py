@@ -58,16 +58,6 @@ def create_file(file_name, shows, mode):
     with open(file_name, mode) as file:
         for show in shows:
             pickle.dump(show, file)
-def print_file(file_name):
-    i = 0
-    with open(file_name, "rb") as file:
-        while True:
-            try:
-                i += 1
-                show = pickle.load(file)
-                print_show(show, i)
-            except EOFError:
-                break
 def show_duration(start, end):
     if end.hours == start.hours:
         hours = 0
