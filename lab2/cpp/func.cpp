@@ -5,7 +5,7 @@ int set_num_show()
 	cout << "Enter number of TV shows: ";
 	getline(cin, num);
 	int i = 0;
-	while (i < size(num))
+	while (i < size(num) || size(num) == 0)
 	{
 		if (!isdigit(num[i]) || num[0] == '0')
 		{
