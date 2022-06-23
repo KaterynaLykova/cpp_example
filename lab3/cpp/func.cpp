@@ -51,7 +51,7 @@ int set_num()
 	string num;
 	getline(cin, num);
 	int i = 0;
-	while (i < size(num))
+	while (i < size(num) || size(num) == 0)
 	{
 		if (!isdigit(num[i]) || num[0] == '0')
 		{
