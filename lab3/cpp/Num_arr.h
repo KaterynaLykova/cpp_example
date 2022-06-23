@@ -1,5 +1,4 @@
 #pragma once
-#include "func.h"
 class Num_arr
 {
 public:
